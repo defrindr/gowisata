@@ -2,7 +2,7 @@
 FROM ubuntu:latest
 
 # Set the working directory inside the container
-WORKDIR /app
+WORKDIR /root/go/pkg/mod/github.com/defrindr/gowisata
 
 # Install necessary packages using apk (Alpine package manager)
 RUN apt-get update \
@@ -21,7 +21,10 @@ RUN GOPROXY=https://goproxy.cn go get
 # Build the Go application
 RUN go build -o main .
 
-VOLUME /app/
+VOLUME /root/go/pkg/mod/github.com/defrindr/gowisata
+VOLUME go.mod
+VOLUME go.sum
+VOLUME main
 
 # Expose the port used by the application
 EXPOSE 3000

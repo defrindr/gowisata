@@ -30,6 +30,8 @@ func main() {
     // Set up routes
     // routes.SetupUserRoutes(app)
 
+    routes.SetupRoleRoutes(app)
+
 	app.Get("/swagger/*", swagger.HandlerDefault) // default
 
 	app.Get("/swagger/*", swagger.New(swagger.Config{ // custom
@@ -45,8 +47,6 @@ func main() {
 		// Ability to change OAuth2 redirect uri location
 		OAuth2RedirectUrl: "http://localhost:3000/swagger/oauth2-redirect.html",
 	}))
-
-    routes.SetupRoleRoutes(app)
 
 	app.Listen(":3000")
 }

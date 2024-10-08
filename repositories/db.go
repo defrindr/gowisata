@@ -12,6 +12,7 @@ var DB *gorm.DB
 
 func InitDB() {
 	connStr := config.Config.DBUser + ":" + config.Config.DBPassword + "@tcp(" + config.Config.DBHost + ":" + config.Config.DBPort + ")/" + config.Config.DBName + "?parseTime=true"
+	fmt.Print(connStr)
 	var err error
 	DB, err = gorm.Open("mysql", connStr)
 	if err != nil {
